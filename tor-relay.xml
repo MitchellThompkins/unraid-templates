@@ -34,7 +34,7 @@ Two manual steps are required, in addition to one highly recommended configurati
 These two manual steps from above are:&#xD;
 &#xD;
 mkdir -p /mnt/user/appdata/tor-relay/data/&#xD;
-sudo chown 100:100 ./data&#xD;
+sudo chown 100:100 /mnt/user/appdata/tor-relay/data/&#xD;
 &#xD;
 The port forwarding configuration must be configured at the router.</Overview>
   <Category>Network:Privacy Network:Other</Category>
