@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>tor-relay</Name>
+  <Repository>mitchellthompkins/tor-relay:latest</Repository>
+  <Registry>https://hub.docker.com/repository/docker/mitchellthompkins/tor-relay/general</Registry>
+  <Network>br0</Network>
+  <MyIP>193.169.1.9</MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/193216-support-mitchellthompkinstor-relay/</Support>
+  <Project>https://github.com/MitchellThompkins/tor-relay/tree/master</Project>
+  <Overview>This allows a tor to act as a relay on your unraid system. It does NOT allow it to act as an exit node. It automatically enables account bandwidth tracking to prevent from using too much network bandwidth.&#xD;
+&#xD;
+These are the container variables which can be modified:&#xD;
+&#xD;
+IPV4_ONLY&#xD;
+OR_PORT&#xD;
+DIR_PORT&#xD;
+RELAY_BANDWIDTH_RATE&#xD;
+RELAY_BANDWIDTH_BURST&#xD;
+ACCOUNTING_MAX&#xD;
+ACCOUNTING_START&#xD;
+NICKNAME&#xD;
+CONTACT_INFO&#xD;
+&#xD;
+A few defaults are pre-set, otherwise they are set by the container itself.&#xD;
+&#xD;
+Two manual steps are required, in addition to one highly recommended configuration:&#xD;
+&#xD;
+1. (Step1) Users must create a data/ folder somewhere on their unraid system, by default it is expected that this is at /mnt/user/appdata/tor-relay/data/&#xD;
+2. (Step2) The root user must change the folder permissions to that of the unprivileged tor user. This is required for tor container to create a .tor folder to track bandwidth stats between reboots.&#xD;
+3. (Configuration) Assign this container a static ip on the network, and forward the ports for OR_PORT and DIR_PORT to that static ip.&#xD;
+&#xD;
+These two manual steps from above are:&#xD;
+&#xD;
+mkdir -p /mnt/user/appdata/tor-relay/data/&#xD;
+sudo chown 100:100 ./data&#xD;
+&#xD;
+The port forwarding configuration must be configured at the router.</Overview>
+  <Category>Network:Privacy Network:Other</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://github.com/TheTorProject/tor-media/blob/master/Onion%20Icon/Onion_Negative_Purple_Background_Icon.png?raw=true</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1756741348</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>See overview.</Requires>
+  <Config Name="OR Port" Target="9001" Default="9001" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">9001</Config>
+  <Config Name="DIR Port" Target="9030" Default="9030" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">9030</Config>
+  <Config Name="Server data directory" Target="/var/lib/tor/" Default="/mnt/user/appdata/tor-relay/data/" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/tor-relay/data/</Config>
+  <Config Name="NICKNAME" Target="NICKNAME" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">HelloWorldItsMe</Config>
+  <Config Name="ACCOUNTING_MAX" Target="ACCOUNTING_MAX" Default="300 GBytes" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">320 GBytes</Config>
+  <Config Name="RELAY_BANDWIDTH_RATE" Target="RELAY_BANDWIDTH_RATE" Default="512 KBytes" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">512 KBytes</Config>
+  <Config Name="RELAY_BANDWIDTH_BURST" Target="RELAY_BANDWIDTH_BURST" Default="1024 KBytes" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">1024 KBytes</Config>
+  <TailscaleStateDir/>
+</Container>
