@@ -40,11 +40,11 @@ The port forwarding configuration must be configured at the router.</Overview>
   <Category>Network:Privacy Network:Other</Category>
   <WebUI/>
   <TemplateURL/>
-  <Icon>https://github.com/TheTorProject/tor-media/blob/master/Onion%20Icon/Onion_Negative_Purple_Background_Icon.png?raw=true</Icon>
+  <Icon>https://github.com/MitchellThompkins/unraid-templates/blob/main/assets/tor_icon.png?raw=true</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1756741348</DateInstalled>
+  <DateInstalled>1756741716</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires>See overview.</Requires>
